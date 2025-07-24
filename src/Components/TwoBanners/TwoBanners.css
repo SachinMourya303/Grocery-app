@@ -1,0 +1,41 @@
+
+.twobanners-figure figcaption button{
+    background: #5DBE8A !important;
+    color: #fff !important;
+}
+
+.two-banners figure figcaption{
+    font-size: 40px;
+}
+
+@media only screen and (max-width:480px){
+    .two-banners figure figcaption{
+    font-size: 25px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+}
+
+@media screen and (min-width:480px) and (max-width:767px){
+    .two-banners figure figcaption{
+    font-size: 35px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+}
+
+@media screen and (min-width:767px) and (max-width:1000px){
+    .two-banners figure figcaption{
+    font-size: 25px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+}
+
+@media screen and (min-width:1000px) and (max-width:1200px){
+    .two-banners figure figcaption{
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+}

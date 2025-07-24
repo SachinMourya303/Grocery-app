@@ -1,0 +1,79 @@
+import React, { useState } from "react";
+import '/src/Components/Navbar/Navbar.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.js'
+import 'bootstrap-icons/font/bootstrap-icons.min.css'
+import { NavLink, useNavigate } from 'react-router-dom'
+
+const Navbar = ({ searchValue, setSearchValue, cartStorage }) => {
+    const navigate = useNavigate();
+    const onchangeHandler = (e) => {
+        setSearchValue(e.target.value);
+    }
+    const onSubmitHandler = () => {
+        if (searchValue === "") {
+            return;
+        }
+        else {
+            navigate("/searchedproducts");
+            setSearchValue("");
+        }
+    }
+
+    return (
+        <>
+            <div className="border-bottom border-success">
+                <nav className="container-fluid p-2 navbar navbar-expand-md bg-transparent">
+                    <NavLink to="/" className="navbar-brand"><i className="bi bi-tree-fill"></i><span className="text-warning">Seed</span>ling</NavLink>
+                    <div className="md-buttons d-flex">
+                        <div>
+                            <NavLink to="/cart" className="md-cart bi bi-cart2 fs-1 d-none" style={{ marginTop: "-8px" }}></NavLink>
+                            <div className="position-absolute ms-3 bg-warning rounded-5 d-md-none" style={{height:"20px" , width:"20px",paddingLeft:"5px",top:"12px"}}> {cartStorage.length}</div>
+                        </div>
+                        <div className="navbar-toggler border-0">
+                            <h1 className="bi bi-grid-3x3-gap-fill mt-2 text-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></h1>
+                        </div>
+                    </div>
+                    <div id="offcanvas" className="offcanvas offcanvas-end" style={{ width: "200px" }}>
+                        <div className="offcanvas-header">
+                            <button className="btn btn-close" data-bs-dismiss="offcanvas"></button>
+                        </div>
+                        <div className="offcanvas-body text-align-center">
+                            <ul className="navbar-nav ms-auto">
+                                <li className="nav-item">
+                                    <NavLink to="/" className="nav-link ">Home</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/bestsellers" className="nav-link ">BestSellers</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/about" className="nav-link ">About</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/vegitables" className="nav-link ">FreshMart</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/allproducts" className="nav-link ">Product</NavLink>
+                                </li>
+                                <li className="searchBar nav-item ms-5 me-5 border border-1 border-success p-1 rounded-5 d-flex justify-content-between d-block">
+                                    <input type="text" className="border-0 rounded-5 p-1" placeholder="Search grocery..." value={searchValue} onChange={onchangeHandler} />
+                                    <button className="bi bi-search border-0 btn btn-success rounded-5" onClick={onSubmitHandler}></button>
+                                </li>
+                                <li className="nav-item d-flex position-relative">
+                                    <NavLink to="/cart" className="nav-link bi bi-cart2 fs-4 d-none d-md-block" style={{ marginTop: "-8px" }}></NavLink>
+                                    <div className="position-absolute top-0 ms-4 bg-warning rounded-5" style={{ height: "20px", width: "20px", paddingLeft: "5px", paddingBottom: "4px" }}> {cartStorage.length}</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div className="container d-flex justify-content-between mt-3 rounded d-md-none" id="inputBox">
+                <input type="text" className="col-10 rounded border p-1" placeholder="Search grocery..." value={searchValue} onChange={onchangeHandler} />
+                <button className="col-2 bi bi-search border-0 btn btn-success rounded" onClick={onSubmitHandler}></button>
+            </div>
+        </>
+    )
+}
+
+export default Navbar

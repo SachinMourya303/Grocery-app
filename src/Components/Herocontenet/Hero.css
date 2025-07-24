@@ -1,0 +1,39 @@
+.main-hero-banner figure figcaption span {
+    font-size: 45px;
+}
+
+@media only screen and (max-width:400px) {
+    .main-hero-banner figure figcaption span {
+        font-size: 30px;
+        margin-top: 70%;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:767px) {
+    .main-hero-banner figure figcaption span {
+        font-size: 35px;
+        margin-top: 90%;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width:767px) and (max-width:1000px) {
+    .main-hero-banner figure figcaption span {
+        font-size: 25px;
+    }
+
+    .main-hero-banner figure figcaption span div {
+        justify-content: start !important;
+    }
+}
+@media screen and (min-width:1000px) and (max-width:1200px) {
+    .main-hero-banner figure figcaption span {
+        font-size: 35px;
+    }
+}
+@media only screen and (min-width:1500px) {
+    .main-hero-banner figure figcaption span {
+        font-size: 70px;
+    }
+}

@@ -1,0 +1,24 @@
+.featured-img{
+   height: 80%;
+   width: 80%;
+}
+.featured-item-container figure{
+    cursor: pointer;
+    width: 10vw;
+}
+.featured-item-container figure figcaption{
+    font-size: 1vw;
+}
+
+@media only screen and (max-width:767px) {
+    .featured-item-container{
+        display: flex !important;
+        justify-content: center !important;
+    }
+    .featured-item-container figure{
+        width: 40vw;
+    }
+    .featured-item-container figure figcaption{
+         font-size: 5vw;
+    }
+}

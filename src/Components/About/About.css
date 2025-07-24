@@ -1,0 +1,15 @@
+.about-list:hover{
+    transform: scale(1.1);
+    transition: 0.3s linear;
+}
+
+@media only screen and (max-width:767px){
+    .about-list label{
+      font-size: 50% !important;
+}
+}
+@media only screen and (min-width:767px) and (max-width:1200px){
+    .about-list label{
+      font-size: 50% !important;
+}
+}

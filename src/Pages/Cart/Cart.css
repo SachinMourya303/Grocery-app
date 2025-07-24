@@ -1,0 +1,35 @@
+@media only screen and (max-width: 767px) {
+    .cart-heading label {
+        font-size: 10px !important;
+    }
+
+    .cart-body {
+        font-size: 10px !important;
+    }
+
+    .indefun-btn{
+        height: 20px !important;
+        width: 20px !important;
+        font-size: 10px !important;
+        padding: 5px !important;
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width:1200px) {
+    .cart-text {
+        font-size: 13px !important;
+    }
+
+    .cart-category {
+        font-size: 8px !important;
+    }
+
+    .place-oredr-text {
+        font-size: 20px !important;
+    }
+
+    .cart-btn {
+        font-size: 10px !important;
+        padding: 5px !important;
+    }
+}
