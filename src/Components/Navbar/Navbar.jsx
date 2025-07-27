@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '/src/Components/Navbar/Navbar.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 import 'bootstrap-icons/font/bootstrap-icons.min.css'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { SignInButton, UserButton, useUser } from "@clerk/clerk-react";
 
-const Navbar = ({ searchValue, setSearchValue, cartStorage }) => {
+const Navbar = ({ searchValue, setSearchValue, cartStorage}) => {
     const navigate = useNavigate();
     const onchangeHandler = (e) => {
         setSearchValue(e.target.value);
@@ -20,6 +21,29 @@ const Navbar = ({ searchValue, setSearchValue, cartStorage }) => {
         }
     }
 
+    const { isSignedIn , isLoaded , user } = useUser();
+
+  useEffect(() => {
+    if (isLoaded && isSignedIn) {
+      const formData = new FormData();
+      formData.append("access_key", "bb770dec-7702-4229-a48f-1fd79d148cb2");
+      formData.append("subject", "User Logged In");
+      formData.append("name", user.fullName || "No Name");
+      formData.append("email", user.primaryEmailAddress.emailAddress);
+      formData.append("message", `User ${user.fullName} logged in with email ${user.primaryEmailAddress.emailAddress}`);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Web3Forms response:", data);
+        })
+        .catch((err) => console.error("Web3Forms error:", err));
+    }
+  }, [isLoaded, isSignedIn, user]);
+
     return (
         <>
             <div className="border-bottom border-success">
@@ -28,8 +52,32 @@ const Navbar = ({ searchValue, setSearchValue, cartStorage }) => {
                     <div className="md-buttons d-flex">
                         <div>
                             <NavLink to="/cart" className="md-cart bi bi-cart2 fs-1 d-none" style={{ marginTop: "-8px" }}></NavLink>
-                            <div className="position-absolute ms-3 bg-warning rounded-5 d-md-none" style={{height:"20px" , width:"20px",paddingLeft:"5px",top:"12px"}}> {cartStorage.length}</div>
+                            <div className="position-absolute ms-3 bg-warning rounded-5 d-md-none" style={{ height: "20px", width: "20px", paddingLeft: "5px", top: "12px" }}> {cartStorage.length}</div>
                         </div>
+
+                        <div className="auth d-md-none list-unstyled ms-2 mt-2">
+                                        {
+                                            <div>
+                                                {isSignedIn ? (
+                                                    <li className="nav-item ms-2 mt-2"><UserButton /></li>
+                                                ) : (
+                                                    <div className="dropdown">
+                                                        <i className="bi bi-person-circle fs-1 ms-2 text-success" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                                        <ul className="dropdown-menu dropdown-menu-end p-0 dropdown-menu-dark">
+                                                            <div className="dropdown-item text-center">
+                                                                <SignInButton className="btn btn-sm text-white">
+                                                                    <button className="btn">Login</button>
+                                                                </SignInButton>
+                                                            </div>
+
+                                                        </ul>
+                                                    </div>
+                                                )}
+
+                                            </div>
+                                        }
+                                    </div>
+
                         <div className="navbar-toggler border-0">
                             <h1 className="bi bi-grid-3x3-gap-fill mt-2 text-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></h1>
                         </div>
@@ -55,14 +103,40 @@ const Navbar = ({ searchValue, setSearchValue, cartStorage }) => {
                                 <li className="nav-item">
                                     <NavLink to="/allproducts" className="nav-link ">Product</NavLink>
                                 </li>
-                                <li className="searchBar nav-item ms-5 me-5 border border-1 border-success p-1 rounded-5 d-flex justify-content-between d-block">
+
+                                 <li className="nav-item">
+                                    <div className="auth">
+                                        {
+                                            <div>
+                                                {isSignedIn ? (
+                                                    <i className="nav-link"><UserButton/></i>
+                                                ) : (
+                                                    <div className="dropdown">
+                                                        <i className="bi bi-person-circle fs-3 ms-2 text-success" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                                        <ul className="dropdown-menu dropdown-menu-lg-end p-0 dropdown-menu-dark">
+                                                            <div className="dropdown-item text-center">
+                                                                <SignInButton className="btn btn-sm text-white">
+                                                                    <button className="btn">Login</button>
+                                                                </SignInButton>
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                )}
+
+                                            </div>
+                                        }
+                                    </div>
+                                </li>
+
+                                <li className="searchBar nav-item ms-5 me-5 border border-1 border-success p-1 rounded-5 d-flex justify-content-between d-none d-md-block">
                                     <input type="text" className="border-0 rounded-5 p-1" placeholder="Search grocery..." value={searchValue} onChange={onchangeHandler} />
                                     <button className="bi bi-search border-0 btn btn-success rounded-5" onClick={onSubmitHandler}></button>
                                 </li>
-                                <li className="nav-item d-flex position-relative">
+                                <li className="nav-item d-flex position-relative d-none d-md-block">
                                     <NavLink to="/cart" className="nav-link bi bi-cart2 fs-4 d-none d-md-block" style={{ marginTop: "-8px" }}></NavLink>
                                     <div className="position-absolute top-0 ms-4 bg-warning rounded-5" style={{ height: "20px", width: "20px", paddingLeft: "5px", paddingBottom: "4px" }}> {cartStorage.length}</div>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
