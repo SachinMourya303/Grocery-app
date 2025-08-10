@@ -4,6 +4,7 @@ import '/src/Pages/Cart/Cart.css'
 import { Toaster, toast } from 'react-hot-toast'
 
 const Cart = ({ cartStorage, setCartStorage ,setProductInfoId }) => {
+    console.log("CartStorage :", cartStorage)
 
     const navigate = useNavigate();
 
@@ -12,7 +13,7 @@ const Cart = ({ cartStorage, setCartStorage ,setProductInfoId }) => {
     }
 
     const onSubmitHandle = () => {
-        navigate("/checkout");
+        navigate("/");
     }
 
     const handleIncrement = (id) => {

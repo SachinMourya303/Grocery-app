@@ -59,10 +59,12 @@ const Navbar = ({ searchValue, setSearchValue, cartStorage}) => {
                                         {
                                             <div>
                                                 {isSignedIn ? (
-                                                    <li className="nav-item ms-2 mt-2"><UserButton /></li>
+                                                    <li className="nav-item ms-2 mt-2">
+                                                        <span><UserButton /></span>
+                                                    </li>
                                                 ) : (
                                                     <div className="dropdown">
-                                                        <i className="bi bi-person-circle fs-1 ms-2 text-success" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                                        <i className="bi bi-person-fill fs-1 ms-2 text-success" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                                         <ul className="dropdown-menu dropdown-menu-end p-0 dropdown-menu-dark">
                                                             <div className="dropdown-item text-center">
                                                                 <SignInButton className="btn btn-sm text-white">
@@ -88,20 +90,20 @@ const Navbar = ({ searchValue, setSearchValue, cartStorage}) => {
                         </div>
                         <div className="offcanvas-body text-align-center">
                             <ul className="navbar-nav ms-auto">
-                                <li className="nav-item">
-                                    <NavLink to="/" className="nav-link ">Home</NavLink>
+                                <li className="nav-item d-flex">
+                                    <NavLink to="/" className="nav-link d-flex flex-column"><span>Home</span> <span className="navigation-bar"></span></NavLink>
                                 </li>
-                                <li className="nav-item">
-                                    <NavLink to="/bestsellers" className="nav-link ">BestSellers</NavLink>
+                                <li className="nav-item d-flex">
+                                    <NavLink to="/bestsellers" className="nav-link d-flex flex-column"><span>Bestsellers</span> <span className="navigation-bar"></span></NavLink>
                                 </li>
-                                <li className="nav-item">
-                                    <NavLink to="/about" className="nav-link ">About</NavLink>
+                                <li className="nav-item d-flex">
+                                    <NavLink to="/about" className="nav-link d-flex flex-column"><span>About</span> <span className="navigation-bar"></span></NavLink>
                                 </li>
-                                <li className="nav-item">
-                                    <NavLink to="/vegitables" className="nav-link ">FreshMart</NavLink>
+                                <li className="nav-item d-flex">
+                                    <NavLink to="/vegitables" className="nav-link d-flex flex-column"><span>FreshMart</span> <span className="navigation-bar"></span></NavLink>
                                 </li>
-                                <li className="nav-item">
-                                    <NavLink to="/allproducts" className="nav-link ">Product</NavLink>
+                                <li className="nav-item d-flex">
+                                    <NavLink to="/allproducts" className="nav-link d-flex flex-column"><span>Product</span> <span className="navigation-bar"></span></NavLink>
                                 </li>
 
                                  <li className="nav-item">
@@ -109,10 +111,14 @@ const Navbar = ({ searchValue, setSearchValue, cartStorage}) => {
                                         {
                                             <div>
                                                 {isSignedIn ? (
-                                                    <i className="nav-link"><UserButton/></i>
+                                                    <i className="nav-item d-flex">
+                                                        <span className="nav-link" style={{height:"40px"}}>
+                                                            <UserButton/>
+                                                        </span>
+                                                    </i>
                                                 ) : (
                                                     <div className="dropdown">
-                                                        <i className="bi bi-person-circle fs-3 ms-2 text-success" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                                        <i className="bi bi-person-fill fs-3 ms-2 text-success" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                                         <ul className="dropdown-menu dropdown-menu-lg-end p-0 dropdown-menu-dark">
                                                             <div className="dropdown-item text-center">
                                                                 <SignInButton className="btn btn-sm text-white">
@@ -128,7 +134,7 @@ const Navbar = ({ searchValue, setSearchValue, cartStorage}) => {
                                     </div>
                                 </li>
 
-                                <li className="searchBar nav-item ms-5 me-5 border border-1 border-success p-1 rounded-5 d-flex justify-content-between d-none d-md-block">
+                                <li className="searchBar nav-item ms-lg-5 me-lg-5 border border-1 border-success p-1 rounded-5 justify-content-between d-none d-lg-flex">
                                     <input type="text" className="border-0 rounded-5 p-1" placeholder="Search grocery..." value={searchValue} onChange={onchangeHandler} />
                                     <button className="bi bi-search border-0 btn btn-success rounded-5" onClick={onSubmitHandler}></button>
                                 </li>
@@ -142,7 +148,7 @@ const Navbar = ({ searchValue, setSearchValue, cartStorage}) => {
                     </div>
                 </nav>
             </div>
-            <div className="container d-flex justify-content-between mt-3 rounded d-md-none" id="inputBox">
+            <div className="container d-flex justify-content-between mt-3 rounded d-lg-none" id="inputBox">
                 <input type="text" className="col-10 rounded border p-1" placeholder="Search grocery..." value={searchValue} onChange={onchangeHandler} />
                 <button className="col-2 bi bi-search border-0 btn btn-success rounded" onClick={onSubmitHandler}></button>
             </div>

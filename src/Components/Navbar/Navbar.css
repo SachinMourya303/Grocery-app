@@ -4,7 +4,24 @@
     height: 60px !important;
 }
 .nav-link.active{
-    border-bottom: 2px solid #5DBE8A;
+   .navigation-bar{
+    height: 2px !important;
+   width: 100% !important;
+   background: #5DBE8A !important;
+}
+}
+
+.navigation-bar{
+    height: 2px !important;
+   width: 0% !important;
+   background: #5DBE8A !important;
+    transition: 0.5s;
+}
+.nav-link:hover{
+   .navigation-bar{
+    width: 100% !important;
+    transition: 0.5s;
+   }
 }
 .navbar-brand{
     font-weight: bold;

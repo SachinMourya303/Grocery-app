@@ -34,7 +34,7 @@ function App() {
     const [cartId, setCartId] = useState("");
     const [cartStorage, setCartStorage] = useState([]);
     const [productInfoId, setProductInfoId] = useState("");
-    const [productInfo , setProductInfo] = useState([]);
+    const [productInfo, setProductInfo] = useState([]);
 
 
     useEffect(() => {
@@ -55,44 +55,44 @@ function App() {
     useEffect(() => {
         const filterProductInfo = () => groceryData.filter((product) => product.id == productInfoId);
         setProductInfo(filterProductInfo());
-    },[productInfoId])
-    const Homepage = ({ setCartId , setProductInfoId }) => {
+    }, [productInfoId])
+    const Homepage = ({ setCartId, setProductInfoId }) => {
         return (
             <>
                 <Hero />
                 <Featuredcategories />
                 <TwoBanners />
-                <BestSellers setCartId={setCartId} setProductInfoId={setProductInfoId}/>
+                <BestSellers setCartId={setCartId} setProductInfoId={setProductInfoId} />
                 <About />
                 <Footer />
             </>
         )
     }
-    
+
     return (
         <>
             <BrowserRouter>
-                <Navbar searchValue={searchValue} setSearchValue={setSearchValue} cartStorage={cartStorage}/>
+                <Navbar searchValue={searchValue} setSearchValue={setSearchValue} cartStorage={cartStorage} />
                 <AnimatePresence mode="wait">
                     <Routes>
-                        <Route path="/" element={<Homepage setCartId={setCartId} setProductInfoId={setProductInfoId}/>} />
-                        <Route path="/grains" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Grains setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/oatmeal" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Oatmeal setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/cake" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Cake setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/fruits" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Fruits setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/dairyproducts" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Dairyproducts setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/icecream" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Icecream setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/drinks" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Drinks setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/vegitables" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Vegitables setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/allproducts" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><AllProducts setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/bestsellers" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><BestSellers setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
+                        <Route path="/" element={<Homepage setCartId={setCartId} setProductInfoId={setProductInfoId} />} />
+                        <Route path="/grains" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Grains setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/oatmeal" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Oatmeal setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/cake" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Cake setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/fruits" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Fruits setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/dairyproducts" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Dairyproducts setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/icecream" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Icecream setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/drinks" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Drinks setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/vegitables" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Vegitables setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/allproducts" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><AllProducts setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/bestsellers" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><BestSellers setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
                         <Route path="/about" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><About /></motion.div>} />
-                        <Route path="/searchedproducts" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><SearchedProducts searchProduct={searchProduct} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/cart" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Cart cartStorage={cartStorage} setCartStorage={setCartStorage} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/productinfo" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><ProductInfo productInfo={productInfo} setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/breakfast" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><BreakFast productInfo={productInfo} setCartId={setCartId} setProductInfoId={setProductInfoId}/></motion.div>} />
-                        <Route path="/signin" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Login/></motion.div>} />
-                        <Route path="/signup" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Signup/></motion.div>} />
+                        <Route path="/searchedproducts" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><SearchedProducts setCartId={setCartId} searchProduct={searchProduct} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/cart" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Cart cartStorage={cartStorage} setCartStorage={setCartStorage} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/productinfo" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><ProductInfo productInfo={productInfo} setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/breakfast" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><BreakFast productInfo={productInfo} setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
+                        <Route path="/signin" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Login /></motion.div>} />
+                        <Route path="/signup" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Signup /></motion.div>} />
                     </Routes>
                 </AnimatePresence>
             </BrowserRouter>
