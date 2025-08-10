@@ -2,7 +2,7 @@ import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // Load environment variables
-const basePath = process.env.VITE_BASE_PATH || '/Grocery-app';
+const basePath = process.env.VITE_BASE_PATH || '/';
 
 export default defineConfig({
   base: basePath, // This sets the base public path
