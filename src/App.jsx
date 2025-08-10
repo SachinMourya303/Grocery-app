@@ -23,7 +23,7 @@ import Cart from "./Pages/Cart/Cart.jsx";
 import ProductInfo from "./Pages/ProductInfo/ProductInfo.jsx";
 import BreakFast from "./Pages/BreakFast/BreakFast.jsx";
 import Login from "./Pages/Auth/Login.jsx";
-import Signup from "./Pages/Auth/SignUp.jsx";
+import Signuppage from "./Pages/Auth/Signuppage.jsx";
 
 
 
@@ -92,7 +92,7 @@ function App() {
                         <Route path="/productinfo" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><ProductInfo productInfo={productInfo} setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
                         <Route path="/breakfast" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><BreakFast productInfo={productInfo} setCartId={setCartId} setProductInfoId={setProductInfoId} /></motion.div>} />
                         <Route path="/signin" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Login /></motion.div>} />
-                        <Route path="/signup" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Signup /></motion.div>} />
+                        <Route path="/signup" element={<motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}><Signuppage /></motion.div>} />
                     </Routes>
                 </AnimatePresence>
             </BrowserRouter>

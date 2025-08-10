@@ -1,7 +1,7 @@
 import React from 'react'
 import { SignUp } from '@clerk/clerk-react'
 
-const Signup = () => {
+const Signuppage = () => {
   return (
     <div>
         <SignUp />
@@ -9,4 +9,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Signuppage
