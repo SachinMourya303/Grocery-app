@@ -16,7 +16,7 @@ import AllProducts from "./Pages/AllProducts/AllProducts.jsx";
 import About from "./Components/About/About.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
 import Dairyproducts from "./Pages/Dairyproducts/Dairyproducts.jsx";
-import Drinks from "./Pages/Drinks/drinks.jsx";
+import Drinks from "./Pages/Drinks/Drinks.jsx";
 import Grains from "./Pages/Grains/Grains.jsx";
 import SearchedProducts from "./Pages/SearchedProducts/SearchedProducts.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
